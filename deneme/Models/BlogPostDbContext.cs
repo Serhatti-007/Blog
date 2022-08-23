@@ -16,6 +16,7 @@ namespace deneme.Models
         {
         }
 
+        public virtual DbSet<About> Abouts { get; set; } = null!;
         public virtual DbSet<TblPost> TblPosts { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -23,12 +24,21 @@ namespace deneme.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=LAPTOP-HRH373GG\\SQLEXPRESS;  Database=BlogPostDb; Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=LAPTOP-HRH373GG\\SQLEXPRESS;Database=BlogPostDb;Trusted_Connection=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<About>(entity =>
+            {
+                entity.ToTable("About");
+
+                entity.Property(e => e.Title)
+                    .HasMaxLength(255)
+                    .IsFixedLength();
+            });
+
             modelBuilder.Entity<TblPost>(entity =>
             {
                 entity.ToTable("TBL_Post");

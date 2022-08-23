@@ -1,16 +1,11 @@
-﻿@Model IEnumarable<About>
+﻿@model IEnumerable<About>
+
 @{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "Index";
 }
 
-<h1>@ViewData["Title"]</h1>
 
-<p>Merhaba hakkında kısmı. </p>
-
-
-
-@foreach (var obj in Model)
-{
+@foreach(var obj in Model){
 
     <div>
         <div>
@@ -23,4 +18,8 @@
         <a asp-controller="About" asp-action="Delete">Delete</a>
     </div>
 }
+
+
+
+
 

@@ -6,11 +6,13 @@ namespace deneme.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly BlogPostDbContext _db;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, BlogPostDbContext db)
         {
             _logger = logger;
+            _db = db;
         }
 
         public IActionResult Index()
@@ -19,7 +21,8 @@ namespace deneme.Controllers
         }
         public IActionResult About()
         {
-            return View();
+            IEnumerable<About> liste = _db.Abouts.ToList();
+            return View(liste);
         }
 
 

@@ -84,9 +84,7 @@ namespace deneme.Controllers
                 return NotFound();
             }
             return View(post);
-
         }
-
 
 
         [HttpPost]
