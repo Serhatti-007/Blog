@@ -1,0 +1,38 @@
+﻿@model About
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+
+<form method="post" asp-action="Edit">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit Post</h2>
+            <hr />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Title">Name</label>
+            <input asp-for="Title" class="form-control">
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Body">Body</label>
+            <input asp-for="Body" class="form-control">
+            <span asp-validation-for="Body" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Image">Image</label>
+            <input asp-for="Image" class="form-control">
+            <span asp-validation-for="Image" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:150px">Update</button>
+        <a asp-controller="About" asp-action="Index" class="btn btn-secondary" style="width:150px">
+            Back To About Page View
+        </a>
+    </div>
+</form>

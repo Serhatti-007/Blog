@@ -1,5 +1,6 @@
 ﻿using deneme.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 
 namespace deneme.Controllers
 {
@@ -18,11 +19,32 @@ namespace deneme.Controllers
             return View(list);
         }
 
-        public IActionResult Create()
+        public IActionResult Edit(int? id)
         {
-            return View();
+            if (id == null || id == 0)
+            {
+                return NotFound();
+            }
+            var post = _db.Abouts.Find(id);
+            if (post == null)
+            {
+                return NotFound();
+            }
+            return View(post);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(About obj)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Abouts.Update(obj);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(obj);
+        }
 
 
 
