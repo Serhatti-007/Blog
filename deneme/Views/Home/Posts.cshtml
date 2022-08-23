@@ -1,7 +1,28 @@
-﻿@{
+﻿@model IEnumerable<TblPost>
+
+@{
     ViewData["Title"] = "Post";
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <p>Merhaba Postlar kısmı.</p>
+
+
+
+
+
+
+
+
+@foreach(var obj in Model)
+{
+    <div class="container" style="border:solid 2px;">
+        <h2>@obj.Title</h2>
+        <p>@obj.Body</p>
+    </div>
+}
+
+
+
+

@@ -33,7 +33,8 @@ namespace deneme.Controllers
 
         public IActionResult Posts()
         {
-            return View();
+            IEnumerable<TblPost> liste = _db.TblPosts.ToList();
+            return View(liste);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
