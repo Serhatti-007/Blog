@@ -10,16 +10,12 @@
 
 
 
-
-
-
-
-
 @foreach(var obj in Model)
 {
     <div class="container" style="border:solid 2px;">
         <h2>@obj.Title</h2>
         <p>@obj.Body</p>
+        <img src="@obj.PostResim"/>
     </div>
 }
 

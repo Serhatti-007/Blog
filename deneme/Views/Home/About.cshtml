@@ -1,12 +1,12 @@
-﻿@Model IEnumarable<About>
+﻿@model IEnumerable<About>
 @{
     ViewData["Title"] = "About";
 }
 
-<h1>@ViewData["Title"]</h1>
+@*<h1>@ViewData["Title"]</h1>
 
 <p>Merhaba hakkında kısmı. </p>
-
+*@
 
 
 @foreach (var obj in Model)
@@ -16,7 +16,7 @@
         <div>
             <h2>@obj.Title</h2>
             <p>@obj.Body</p>
-            <img src="@obj.Image">
+            <img src="@obj.Image"/>
         </div>
     </div>
 }
