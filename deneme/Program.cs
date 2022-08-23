@@ -1,7 +1,17 @@
+using deneme.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//var connectionString = builder.Configuration.GetConnectionString("DBConnection");
+//builder.Services.AddDbContext<BlogPostDbContext>(options =>
+//    options.UseSqlServer(connectionString));
+//Use this to add tables to your database
+builder.Services.AddDbContext<BlogPostDbContext>();
+
 
 var app = builder.Build();
 
