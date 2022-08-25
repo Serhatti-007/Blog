@@ -4,6 +4,7 @@
 }
 @{
 
+    
 
 }
 <style>
@@ -87,6 +88,13 @@
             <div class="col-ms-12 align-content-around area" id="primary">
                 <main class="site-main mt-4" id="main">
                     <header class="page-header"><h1 class="page-title"> Our Post Archive </h1></header>
+
+                    <div class="col-6">
+                        <a asp-controller="Home" asp-action="FindPost" class="btn btn-outline-dark">
+                            <i class="bi bi-plus-circle"></i> Find Post
+                            
+                        </a>
+                    </div>
                     <div class="boot view-group rowsafari row">
 
                         @foreach(var obj in Model){
@@ -130,6 +138,5 @@
     </div>
 
 </div>
-
 
 

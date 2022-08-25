@@ -36,7 +36,7 @@
     <br>
 
 
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered table-striped" id="fnd1">
         <thead>
             <tr>
                 <th>
@@ -89,3 +89,17 @@
         </tbody>
     </table>
 </div>
+
+@section scripts{
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/af-2.4.0/datatables.min.css" />
+
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/af-2.4.0/datatables.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#fnd1").DataTable();
+
+        });
+    </script>
+
+}

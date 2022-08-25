@@ -40,6 +40,12 @@ namespace deneme.Controllers
             return View(liste);
         }
 
+        public IActionResult FindPost()
+        {
+            IEnumerable<TblPost> search = _db.TblPosts.ToList();
+            return View(search);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
