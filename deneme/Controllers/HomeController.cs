@@ -19,7 +19,7 @@ namespace deneme.Controllers
         public IActionResult Index()
         {
             IEnumerable<TblPost> liste = _db.TblPosts.ToList();
-            liste = liste.Take(5).ToList();
+            liste = liste.OrderByDescending(x => x.Id).Take(5).ToList();
             return View(liste);
         }
         public IActionResult About()
