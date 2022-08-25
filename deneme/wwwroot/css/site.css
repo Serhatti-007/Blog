@@ -16,3 +16,37 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+html, body{
+    margin:0%; 
+    box-sizing:border-box; 
+    overflow-x: hidden;
+}
+/*-----------------Global Classes----------------------*/
+
+a{
+    text-decoration: none;
+}
+.flex-row{
+    display:flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/*----------------------Main Content-----------------------*/
+/*----------------------Site Title-----------------*/
+body {
+    background-image: url('Images/background1.png');
+    background-size: 100% 100%;
+    background-attachment: fixed;
+}
+
+main .site-title {
+    background: url("../Image//web_first_images_release.png");
+    background-size: cover;
+    height: 110vh;
+    display: flex; 
+    justify-content: center;
+}
+/*---------x------------Site Title-------x---------*/
+/*------x--------------Main Content------------x-----------*/

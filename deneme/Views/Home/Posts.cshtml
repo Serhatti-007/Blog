@@ -1,22 +1,99 @@
-﻿@{
+﻿@model IEnumerable<TblPost>
+@{
     ViewData["Title"] = "Post";
 }
+
+<style>
+    img{
+        display: inline-block; 
+        vertical-align: middle;
+        max-width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+</style>
 
 <h1>@ViewData["Title"]</h1>
 
 <p>Merhaba Postlar kısmı.</p>
 
 
-
+@*
 @foreach(var obj in Model)
 {
     <div class="container" style="border:solid 2px;">
         <h2>@obj.Title</h2>
         <p>@obj.Body</p>
         <img src="@obj.PostResim"/>
+        <button asp-controller="Post" asp-action="Detail" asp-route-id="@obj.Id">Read More</button>
     </div>
-}
+}*@
 
+
+
+<div class="wrapper" id="archive-wrapper">
+    <div class="container" id="content">
+        <div class="row">
+            <div class="col-ms-12 align-content-around area" id="primary">
+                <main class="site-main mt-4" id="main">
+                    <header class="page-header"><h1 class="page-title"> Our Post Archive </h1></header>
+                    <div class="boot view-group rowsafari">
+
+                        @foreach(var obj in Model){
+                            <div class="col-lg-4 col-md-6 col-sm-12 py-2">
+                                <div class="card h-100">
+                                    <div class="card-body px-3">
+                                        <h2 class="group card-title inner list-group-item-heading">
+                                            <a href="#" rel="bookmark">@obj.Title</a>
+                                        </h2>
+                                        <div class="text-center">
+                                            <a href="#">
+                                                <img src="@obj.PostResim" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt loading="lazy" sizes="(max-width: 862px) 100vw, 862px" />
+                                            </a>
+                                        </div>
+                                        <div class="entry-meta">
+                                            <span class="posted-on">
+                                                <a href="#" rel="bookmark">
+                                                    <time class="entry-date published" datetime="@obj.CreatedTime"></time>
+                                                    <time class="updated" datetime=""></time>
+                                                </a>
+                                            </span>
+                                        </div>
+                                        <div class="entry-content mt-2">
+                                            <p>@obj.Body</p>
+                                            <p> <a class="btn btn-secondary understrap-read-more-link" href="#">Read More</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+                     
+
+                        <!-- buraya bir tane daha mi konulacak-->
+
+
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </main>
+            </div>
+        </div>
+
+    </div>
+
+</div>
 
 
 

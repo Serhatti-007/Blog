@@ -1,6 +1,7 @@
 ﻿using deneme.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Linq;
 
 namespace deneme.Controllers
 {
@@ -17,7 +18,9 @@ namespace deneme.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            IEnumerable<TblPost> liste = _db.TblPosts.ToList();
+            liste = liste.Take(5).ToList();
+            return View(liste);
         }
         public IActionResult About()
         {

@@ -3,6 +3,21 @@
     ViewData["Title"] = "Listele";
 }
 
+@{
+    var bodyText = new Dictionary<TblPost, string>(); 
+    foreach(var obj in Model){
+        if(obj.Body.Length > 35){
+            bodyText.Add(obj, obj.Body.ToString().Substring(0, 35) + "...");
+        }
+        else{
+            bodyText.Add(obj,obj.Body.ToString());
+        }
+    }
+
+
+
+}
+
 <h1>Manage Posts</h1>
 
 
@@ -25,6 +40,9 @@
         <thead>
             <tr>
                 <th>
+                    Post Id
+                </th>
+                <th>
                     Post Title
                 </th>
                 <th>
@@ -42,11 +60,14 @@
             @foreach (var obj in Model)
             {
                 <tr>
-                    <td width="40%">
+                    <td width="10%">
+                        @obj.Id
+                    </td>
+                    <td width="30%">
                         @obj.Title
                     </td>
-                    <td width="20%;">
-                        @obj.Body
+                    <td width="20%">
+                        @bodyText[obj]
                     </td>
                     <td width="20%">
                         @obj.CreatedTime
@@ -61,22 +82,6 @@
                     </td>
                 </tr>
             }
-@*            <tr>
-                <td>
-                    ornekk baslik
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    ornekk aciklama
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    ornekk zamn
-                </td>
-            </tr>
-*@
 
         </tbody>
     </table>

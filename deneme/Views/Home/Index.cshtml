@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<TblPost>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -12,51 +13,62 @@
 </style>
 
 
-<link rel="stylesheet" href="~/css/site.css"/>
 
 
-@*
-<p>Merhaba hakkımızda kısmı.</p>
+<link href="~/css/site.css" rel="stylesheet"/>
 
-<div>
-    <img class="img1" src="~/İmage/home-bg.jpg" alt="Örnek Resim" />
-</div>
+
+<!--------------------------------------- Main Site Section -------------------------------------------->
+@*<body>
+
+
+    <main>
+        <!--Site Title-->
+        <section class="site-title">
+            <div class="site-background">
+                <h3>Tours And Travels</h3>
+                <h1>Amazing Place On Earth</h1>
+                <button class="butonum">Explore</button>
+            </div>
+        </section>
+        </main>
+</body>
 *@
 
 
-@*
-<section>
- 
+<!------Main Content ----------->
 
-    <div class="carousel">
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+<main class="container">
+    <div class="p-4 p-md-5 mb-4 text-white bg-dark rounded">
+        <div class="col-md-6 px-0">
+            <h1 class="display-4 fst-italic">Cool featured blog post</h1>
+            <p class="lead mb-0">
+                <a href="#" class="text-white fw-bold bold">Continue Reading</a>
+            </p>
+        </div>
 
-        <ul>
-            <li class="slide">
-                <img src="~/İmage/Landscape-Color.jpg" alt="Nature Img">
+    </div>
 
-            </li>
-            <li class="slide">
-                <img src="~/İmage/web_first_images_release.png"  alt="Nature img 2">
-            </li>
-            <li class="slide">
-                <img src="~/İmage/home-bg.jpg" class="d-block w-100" alt="Nature img 3">
-            </li>
-        </ul>
+</mai>
 
+
+<div class="card-group">
+    @foreach (var obj in Model)
+    {
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src=@obj.PostResim alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">@obj.Title</h5>
+                <p class="card-text">@obj.Body</p>
+                <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+    }
 </div>
-   
 
-</section>
-*@
+    <!---------------x------------------------ Main Site Section ----------------------x---------------------->
 
-
-
-
-
-
-<div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel" style="height:auto">
+<div id="carouselExampleDark" class="carousel carousel-dark slide"  data-ride="carousel"data-bs-ride="carousel" style="height:auto">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -64,23 +76,22 @@
     </div>
     <div class="carousel-inner">
 
-        <div class="carousel-item active" data-bs-interval="10000">
-            <h1>@ViewData["Title"]</h1>
-            <img src="~/İmage/Landscape-Color.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-item active" data-bs-interval="1000">
+            <img src="~/Image/Landscape-Color.jpg" class=" d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
             </div>
         </div>
         <div class="carousel-item" data-bs-interval="2000">
-            <img src="~/İmage/web_first_images_release.png" class="d-block w-100" alt="...">
+            <img src="~/Image/web_first_images_release.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Second slide label</h5>
                 <p>Some representative placeholder content for the second slide.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="~/İmage/home-bg.jpg" class="d-block w-100" alt="...">
+            <img src="~/Image/home-bg.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Third slide label</h5>
                 <p>Some representative placeholder content for the third slide.</p>
