@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Linq;
 
+
 namespace deneme.Controllers
 {
     public class HomeController : Controller
@@ -28,6 +29,11 @@ namespace deneme.Controllers
             return View(liste);
         }
 
+
+        public IActionResult deneme()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {
