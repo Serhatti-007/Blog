@@ -1,11 +1,12 @@
 ﻿using deneme.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace deneme.Controllers
 {
     public class AdminController : Controller
     {
-
+        //Admin / Post Controller 
         public readonly BlogPostDbContext _db;
 
         public AdminController(BlogPostDbContext db)
@@ -13,9 +14,20 @@ namespace deneme.Controllers
             _db = db;
         }
 
+        public int getLength()
+        {
+            if(_db.TblPosts == null)
+            {
+                return 0; 
+            }
+            var length = _db.TblPosts.ToArray().Length;
+            return length;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var postNumber = getLength();
+            return View(postNumber);
         }
 
 
@@ -25,6 +37,7 @@ namespace deneme.Controllers
             return View(objCategoryList);
         }
 
+        //Create new post
         public IActionResult Create()
         {
             return View();
@@ -42,7 +55,7 @@ namespace deneme.Controllers
             }
             return View(obj);
         }
-
+        //Edit post 
         public IActionResult Edit(int? id)
         {
             if(id == null || id == 0)
@@ -71,7 +84,7 @@ namespace deneme.Controllers
             return View(post);
         }
 
-
+        //Delete Post
         public IActionResult Delete(int? id)
         {
             if (id == null || id == 0)
@@ -100,6 +113,26 @@ namespace deneme.Controllers
             _db.SaveChanges();
             return RedirectToAction("Listele");
         }
+
+        //See Details of a post
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null || _db.TblPosts == null)
+            {
+                return NotFound();
+            }
+
+            var tblPost = await _db.TblPosts
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (tblPost == null)
+            {
+                return NotFound();
+            }
+
+            return View(tblPost);
+        }
+
+
 
 
 

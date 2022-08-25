@@ -2,7 +2,11 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
+<style>
+    #resim {
+        max-width: 400px;
+    }
+</style>
 <h1>Edit</h1>
 
 <form method="post" asp-action="Edit">
@@ -38,7 +42,7 @@
 
 <div>
     <p> Post Image:</p>
-    <img src=@Model.PostResim/>
+    <img id="resim" src=@Model.PostResim/>
 
 </div>
 

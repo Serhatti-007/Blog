@@ -94,10 +94,10 @@
                                 <div class="card h-100 text-center">
                                     <div class="card-body px-3">
                                         <h2 class="group card-title inner list-group-item-heading">
-                                            <a href="#" rel="bookmark">@obj.Title</a>
+                                            <a rel="bookmark" asp-controller="Post" asp-action="Detail" asp-route-id="@obj.Id">@obj.Title</a>
                                         </h2>
                                         <div class="text-center">
-                                            <a href="#">
+                                            <a asp-controller="Post" asp-action="Detail" asp-route-id="@obj.Id">
                                                 <img src="@obj.PostResim" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt loading="lazy" sizes="(max-width: 862px) 100vw, 862px" />
                                             </a>
                                         </div>
@@ -111,7 +111,7 @@
                                         </div>
                                         <div class="entry-content mt-2">
                                             <p>@obj.Body</p>
-                                            <p> <a class="btn btn-secondary understrap-read-more-link" href="#">Read More</a></p>
+                                            <p> <a class="btn btn-secondary understrap-read-more-link" asp-controller="Post" asp-action="Detail" asp-route-id="@obj.Id">Read More</a></p>
                                         </div>
                                     </div>
                                 </div>

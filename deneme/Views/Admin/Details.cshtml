@@ -1,13 +1,14 @@
-﻿@model TblPost
+﻿@model deneme.Models.TblPost
 @{
-    ViewData["Title"] = "Detail";
+    ViewData["Title"] = "Details";
 }
 
-<h1>Detail</h1>
-<h2>Post hakkinda detay yazilar buraya gelecek</h2>
-
-
-
+<style>
+    #resim {
+        max-width: 400px;
+    }
+</style>
+<h1>Details</h1>
 
 <div>
     <h4>TblPost</h4>
@@ -43,9 +44,11 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.PostResim)
         </dd>
+        <img id="resim"src=@Html.DisplayFor(model => model.PostResim)>
+
     </dl>
 </div>
 <div>
-
-
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Listele">Back to List</a>
 </div>
