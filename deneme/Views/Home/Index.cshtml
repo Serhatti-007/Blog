@@ -10,14 +10,20 @@
     var bodyText = new Dictionary<TblPost, string>();
     foreach (var obj in Model)
     {
-        if (obj.Body.Length > 200)
-        {
-            bodyText.Add(obj, obj.Body.ToString().Substring(0, 200) + "...");
+        if(obj.Body != null){
+            if (obj.Body.Length > 200)
+            {
+                bodyText.Add(obj, obj.Body.ToString().Substring(0, 200) + "...");
+            }
+            else
+            {
+                bodyText.Add(obj, obj.Body.ToString());
+            }
         }
-        else
-        {
-            bodyText.Add(obj, obj.Body.ToString());
+        else{
+            bodyText.Add(obj, " ");
         }
+
     }
 }
 <body>
