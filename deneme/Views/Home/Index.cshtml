@@ -6,6 +6,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 }
 
+<!-- Metnin aciklamasi fazla uzunsa onu keser, sadece bir kismini alir.-->
+@{
+    var bodyText = new Dictionary<TblPost, string>();
+    foreach (var obj in Model)
+    {
+        if (obj.Body.Length > 200)
+        {
+            bodyText.Add(obj, obj.Body.ToString().Substring(0, 200) + "...");
+        }
+        else
+        {
+            bodyText.Add(obj, obj.Body.ToString());
+        }
+    }
+}
+
 <style>
     .img1{      
         width: 20%;
@@ -18,6 +34,65 @@
 
     border-radius: 6px;
     }
+
+   
+    img {
+        display: inline-block;
+        vertical-align: middle;
+        max-width: 100%;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .test {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .card {
+        border: 1px solid #dadada;
+        box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.2s;
+        display: flex;
+        flex-direction: column;
+    }
+
+        .card h3 {
+            padding: 2px;
+            margin: 8px 0;
+            /*   line-height: 20px !important;
+          font-size: 18px !important;
+          font-weight: 500 !important; */
+        }
+
+        .card:hover {
+            box-shadow: 8px 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .card .container {
+            padding: 2px 14px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h4 {
+            margin-top: auto;
+        }
+
+        .card p {
+            margin: 14px 0;
+        }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+        a:hover {
+            color: gray;
+        }
+
 </style>
 
 
@@ -40,8 +115,6 @@
         </main>
 </body>
 *@
-
-
 <!------Main Content ----------->
 
 <main class="container">
@@ -59,7 +132,7 @@
     <table class="bg-dark border" border="1">
         <tr style="color:white;">
 
-            <td><h2>First 5 Posts</h2></td>
+            <td><h2>Recent Posts</h2></td>
 
         </tr>
     </table>
@@ -69,11 +142,11 @@
 <div class="card-group">
     @foreach (var obj in Model)
     {
-        <div class="card" style="width: 18rem;">
+        <div class="card" style="width: 18rem;margin: 10px 10px;">
             <img class="card-img-top" src=@obj.PostResim alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">@obj.Title</h5>
-                <p class="card-text">@obj.Body</p>
+                <p class="card-text">@bodyText[obj]</p>
                 <a class="btn btn-secondary understrap-read-more-link" asp-controller="Post" asp-action="Detail" asp-route-id="@obj.Id">Read More</a>                
             </div>
         </div>

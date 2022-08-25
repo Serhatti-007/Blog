@@ -12,11 +12,17 @@
 @foreach (var obj in Model)
 {
 
-    <div>
-        <div>
-            <h2>@obj.Title</h2>
-            <p>@obj.Body</p>
-            <img src="@obj.Image"/>
+    <div class="container">
+        <div class="row" style="border:solid 1px;">
+            <div class="col-md-6">
+                <h2>@obj.Title</h2>
+                <p>@obj.Body</p>
+            </div>
+            <div>
+
+                <img src="@obj.Image" />
+            </div>
+
         </div>
     </div>
 }

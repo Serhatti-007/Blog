@@ -2,8 +2,20 @@
 @{
     ViewData["Title"] = "Post";
 }
+<!-- Metnin aciklamasi fazla uzunsa onu keser, sadece bir kismini alir.-->
 @{
-
+    var bodyText = new Dictionary<TblPost, string>();
+    foreach (var obj in Model)
+    {
+        if (obj.Body.Length > 400)
+        {
+            bodyText.Add(obj, obj.Body.ToString().Substring(0, 400) + "...");
+        }
+        else
+        {
+            bodyText.Add(obj, obj.Body.ToString());
+        }
+    }
     
 
 }
@@ -57,16 +69,12 @@
         }
         a{
             text-decoration:none;
-            color:lightgray;
-        }
-        a:hover{
             color:black;
         }
+        a:hover{
+            color:gray;
+        }
 </style>
-
-<h1>@ViewData["Title"]</h1>
-
-<p>Merhaba Postlar kısmı.</p>
 
 
 @*
@@ -115,10 +123,11 @@
                                                     <time class="entry-date published" datetime="@obj.CreatedTime"></time>
                                                     <time class="updated" datetime=""></time>
                                                 </a>
+                                                <p class="fst-italic text-muted"> Updated On @obj.UpdatedTime</p>
                                             </span>
                                         </div>
                                         <div class="entry-content mt-2">
-                                            <p>@obj.Body</p>
+                                            <p>@bodyText[obj]</p>
                                             <p> <a class="btn btn-secondary understrap-read-more-link" asp-controller="Post" asp-action="Detail" asp-route-id="@obj.Id">Read More</a></p>
                                         </div>
                                     </div>
@@ -129,14 +138,10 @@
 
                         <!-- buraya bir tane daha mi konulacak-->
                     </div>
-
-
                 </main>
             </div>
         </div>
-
     </div>
-
 </div>
 
 
