@@ -10,8 +10,9 @@
         height:auto;
     }
     #aciklama{
-        margin: 30px;
-        background-color:lightgray;
+        margin-top: 30px;
+        font-family:'MS UI Gothic';
+        font-size: 20px;
     }
 
 </style>
@@ -70,6 +71,20 @@
                             <span class="date-updated fst-italic"> Updated @Model.UpdatedTime</span>
                         </h4>
                         <hr />
+                        <div class="component-content" id="aciklama">
+                            <div class="content-block two-column-blog main-padding-large">
+                                <div class="content-block-text body-regular">
+                                    <article id="makale">
+                                        <div class="entry fst-italic" id="content">
+                                            <p>@Model.Body</p>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                     </div>
                     <div class="col-md-6">
                         <img src="@Model.PostResim"/>
@@ -78,17 +93,7 @@
                 </div>
             </div>
         </div>
-        <div class="component-content" id="aciklama">
-            <div class="content-block two-column-blog main-padding-large">
-                <div class="content-block-text body-regular">
-                    <article id="makale">
-                        <div class="entry" id="content">
-                            <p>@Model.Body</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </div>
+
     </div>
 </div>
 
