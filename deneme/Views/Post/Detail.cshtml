@@ -3,11 +3,18 @@
     ViewData["Title"] = "Detail";
 }
 
-<h1>Detail</h1>
-<h2>Post hakkinda detay yazilar buraya gelecek</h2>
+<style>
+    img{
+        max-height: 300px;
+    }
+    #aciklama{
+        margin: 30px;
+        background-color:lightgray;
+    }
 
+</style>
 
-
+@*
 
 <div>
     <h4>TblPost</h4>
@@ -45,7 +52,43 @@
         </dd>
     </dl>
 </div>
-<div>
+*@
 
 
+
+<div class="component-content">
+    <div class="component-wrapper">
+        <stripe theme="light" :extended="false"></stripe>
+        <div class="component-container">
+            <div class="story-two-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1 class="entry-title heading-four story-two-header">
+                            @Model.Title
+                        </h1>
+                        <h4 class="byline time-info body-large">
+                            <span class="date-updated fst-italic"> Updated @Model.UpdatedTime</span>
+                        </h4>
+                        <hr />
+                    </div>
+                    <div class="col-md-6">
+                        <img src="@Model.PostResim"/>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="component-content" id="aciklama">
+            <div class="content-block two-column-blog main-padding-large">
+                <div class="content-block-text body-regular">
+                    <article id="makale">
+                        <div class="entry" id="content">
+                            <p>@Model.Body</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
