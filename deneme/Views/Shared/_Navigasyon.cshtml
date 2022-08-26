@@ -1,0 +1,125 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+/*    a{
+        text-decoration: none; 
+        display:inline-block; 
+    }
+    header{
+        height: 100vh;
+        color:azure;
+        overflow: hidden;
+    }
+    section{
+        min-height: 100vh; 
+        width: 100%;
+        position: absolute; 
+        left: 0; 
+        top: 0; 
+        padding: 3rem 18rem;
+
+    }
+    21:30
+    
+    
+    
+    */
+    .controlls {
+        position: fixed; 
+        z-index: 0; 
+        top:50%;
+        right: 3%;
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translate(-50);
+    }
+     #svg1, 
+     #svg2,
+     #svg3{
+        padding: 1rem;
+        cursor: pointer;
+        background-color: #454e56;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        justify-content: center; 
+        align-items: center; 
+        margin:.7rem 0;
+        box-shadow: 0 3px 15px rgba(0,0, 0, .2);
+        font-size: 1.2rem; 
+        color: #b2becd;
+        pointer-events: none;
+     }
+     .controlls .active-btn svg{
+         background-color: green; 
+         transition: all .4s ease-in-out;  
+     }
+
+     .active-btn svg{
+         color:white;
+     }
+
+
+
+</style>
+
+
+
+
+<div class="controlls">
+    <div class="control control-1 active-btn">
+        <a asp-controller="Home" asp-action="Index" style="color:white;">
+            <svg id="svg1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-fill" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6zm5-.793V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z"/>
+              <path fill-rule="evenodd" d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z"/>
+            </svg>
+        </a>
+    </div>
+    <div class="control control-2">
+        <a asp-controller="Home" asp-action="Posts" style="color:white;">
+            <svg id="svg3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stickies" viewBox="0 0 16 16">
+                <path d="M1.5 0A1.5 1.5 0 0 0 0 1.5V13a1 1 0 0 0 1 1V1.5a.5.5 0 0 1 .5-.5H14a1 1 0 0 0-1-1H1.5z" />
+                <path d="M3.5 2A1.5 1.5 0 0 0 2 3.5v11A1.5 1.5 0 0 0 3.5 16h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 16 9.586V3.5A1.5 1.5 0 0 0 14.5 2h-11zM3 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5V9h-4.5A1.5 1.5 0 0 0 9 10.5V15H3.5a.5.5 0 0 1-.5-.5v-11zm7 11.293V10.5a.5.5 0 0 1 .5-.5h4.293L10 14.793z" />
+            </svg>
+        </a>
+    </div>
+    <div class="control control-3">
+        <a asp-controller="Home" asp-action="About" style="color:white;">
+            <svg id="svg2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-person-fill" viewBox="0 0 16 16">
+                <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755z" />
+            </svg>
+        </a>
+    </div>
+
+</div>
+
+
+@section Scripts {
+
+
+    <script>
+        const butonlar = document.querySelectorAll(".controlls");
+        const buton = document.querySelectorAll(".control");
+        function pageTransitions() {
+            //buton click active class
+            for (let i = 0; i < butonlar.length; i++) {
+                butonlar[i].addEventListener('click', function(){
+                    let currentBtn = document.querySelectorAll('.active-btn');
+                    currentBtn[0].className = currentBtn[0].className.replace('active-btn', ' ');
+                    this.className += 'active-btn';
+                });
+            }
+        }
+        pageTransitions();
+
+    </script>
+
+
+
+}
