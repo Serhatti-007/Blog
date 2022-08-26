@@ -12,35 +12,46 @@
     .btn{
         height:250px; 
         width:300px;
-        background-color:cornflowerblue;
+        background-color:white;
+        color:black;
         text-align:center;
     }
+    body{
+        background-color:black;
+    }
+
+   #shdw3:hover,#shdw4:hover{
+
+        box-shadow: 5px 5px 5px 2px white;
+    }
+    
 </style>
 
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-             <a class="btn btn-primary mx-2">
-                <i class="bi bi-pencil-square"></i>&nbsp; Gunluk ziyaretci sayisi
+             <a class="btn btn-outline-light mx-2" id="shdw1" >
+                <i class="bi bi-pencil-square"></i>&nbsp; Gunluk ziyaretci sayisi:
             </a>
         </div>
         <div class="col-md-3">
-            <a class="btn btn-primary mx-2">
-                <p style="text-align:center;"><i class="bi bi-pencil-square"></i>&nbsp; Toplam Post Sayisi <p style="font-size:50px;">@Model</p></p>
+            <a class="btn btn-outline-light" id="shdw2">
+                <p style="text-align:center;"><i class="bi bi-pencil-square"></i>&nbsp; Toplam Post Sayisi: <p style="font-size:50px;">@Model</p></p>
             </a>
         </div>
         <div class="col-md-3">
-            <a asp-controller="About" asp-action="Index" asp-route-id="" class="btn btn-primary mx-2">
-                <i class="bi bi-pencil-square"></i>&nbsp; Manage About Page
+            <a asp-controller="About" asp-action="Index" asp-route-id="" class="btn btn-outline-light" id="shdw3">
+                <i class="bi bi-pencil-square"></i>&nbsp; Manage About Page:
             </a>
  
         </div>
         <div class="col-md-3">
-            <a asp-controller="Admin" asp-action="Listele" asp-route-id="" class="btn btn-primary mx-2">
-                <i class="bi bi-pencil-square"></i>&nbsp; Manage Posts
+            <a asp-controller="Admin" asp-action="Listele" asp-route-id="" class="btn btn-outline-light" id="shdw4">
+                <i class="bi bi-pencil-square"></i>&nbsp; Manage Posts:
             </a>
         </div>
 
+</div>
 </div>
 
 

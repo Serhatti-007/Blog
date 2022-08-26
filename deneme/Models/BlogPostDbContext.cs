@@ -24,7 +24,7 @@ namespace deneme.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=LAPTOP-HRH373GG\\SQLEXPRESS;Database=BlogPostDb;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=DESKTOP-0V8VD7E\\SQLEXPRESS;Database=BlogPostDb;Trusted_Connection=True;");
             }
         }
 
