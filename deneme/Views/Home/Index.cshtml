@@ -200,7 +200,7 @@
             <img class="card-img-top" src=@obj.PostResim alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">@obj.Title</h5>
-                <p class="card-text">@bodyText[obj]</p>
+                <p class="card-text">@Html.Raw(bodyText[obj])</p>
                 <a class="btn btn-secondary understrap-read-more-link" asp-controller="Post" asp-action="Detail" asp-route-id="@obj.Id">Read More</a>                
             </div>
         </div>
