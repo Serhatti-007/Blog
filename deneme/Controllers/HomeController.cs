@@ -30,10 +30,6 @@ namespace deneme.Controllers
         }
 
 
-        public IActionResult deneme()
-        {
-            return View();
-        }
 
         public IActionResult Privacy()
         {
