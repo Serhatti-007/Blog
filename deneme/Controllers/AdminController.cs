@@ -1,4 +1,5 @@
 ﻿using deneme.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,6 +25,8 @@ namespace deneme.Controllers
             return length;
         }
 
+
+        [Authorize]
         public IActionResult Index()
         {
             var postNumber = getLength();

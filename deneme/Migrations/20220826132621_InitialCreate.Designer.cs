@@ -12,8 +12,8 @@ using deneme.Areas.Identity.Data;
 namespace deneme.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    [Migration("20220826123947_NewMigration")]
-    partial class NewMigration
+    [Migration("20220826132621_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
