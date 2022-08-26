@@ -5,29 +5,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <style>
-/*    a{
-        text-decoration: none; 
-        display:inline-block; 
-    }
-    header{
-        height: 100vh;
-        color:azure;
-        overflow: hidden;
-    }
-    section{
-        min-height: 100vh; 
-        width: 100%;
-        position: absolute; 
-        left: 0; 
-        top: 0; 
-        padding: 3rem 18rem;
-
-    }
-    21:30
-    
-    
-    
-    */
     .controlls {
         position: fixed; 
         z-index: 0; 
@@ -59,14 +36,8 @@
      .controlls .active-btn svg{
          background-color: green; 
          transition: all .4s ease-in-out;  
+        color:white;
      }
-
-     .active-btn svg{
-         color:white;
-     }
-
-
-
 </style>
 
 
@@ -101,11 +72,9 @@
 
 
 @section Scripts {
-
-
     <script>
         const butonlar = document.querySelectorAll(".controlls");
-        const buton = document.querySelectorAll(".control");
+        const buton = document.querySelector(".control");
         function pageTransitions() {
             //buton click active class
             for (let i = 0; i < butonlar.length; i++) {
@@ -117,9 +86,6 @@
             }
         }
         pageTransitions();
-
     </script>
-
-
 
 }

@@ -4,19 +4,32 @@
     ViewData["Title"] = "Index";
 }
 
+<style>
+    img{
+        max-width: 500px;
+    }
+    .blok{
+        border: solid 1px;
+    }
+</style>
+
+
 
 @foreach(var obj in Model){
 
-    <div>
-        <div>
-            <h2>@obj.Title</h2>
-            <p>@obj.Body</p>
-            <img src="@obj.Image"></img>
+    <div class="blok">
+        <div class="row">
+
+            <div class="col-md-6">
+                <h2>@obj.Title</h2>
+                <p>@Html.Raw(obj.Body)</p>
+            </div>
+            <div class="col-md-6"> 
+                <img src="@obj.Image">
+            </div>
         </div>
-
+  </div>
         <a asp-controller="About" asp-action="Edit" asp-route-id="@obj.Id">Edit</a>
-
-    </div>
 }
 
 

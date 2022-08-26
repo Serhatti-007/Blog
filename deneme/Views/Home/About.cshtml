@@ -12,20 +12,27 @@
     Html.RenderPartial("_Navigasyon");
 }
 
+<style>
+    img{
+        width: 100%; 
+        height: auto;
+    }
+    .container{
+        margin-bottom: 1.7rem;
+    }
+</style>
+
 @foreach (var obj in Model)
 {
-
     <div class="container">
-        <div class="row" style="border:solid 1px;">
+        <div class="row">
             <div class="col-md-6">
                 <h2>@obj.Title</h2>
-                <p>@obj.Body</p>
+                <p>@Html.Raw(obj.Body)</p>
             </div>
-            <div>
-
+            <div class="col-md-6">
                 <img src="@obj.Image" />
             </div>
-
         </div>
     </div>
 }
