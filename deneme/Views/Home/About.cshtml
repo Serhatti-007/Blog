@@ -20,15 +20,18 @@
     .container{
         margin-bottom: 1.7rem;
     }
+    body{
+        background-color:black;
+    }
 </style>
 
 @foreach (var obj in Model)
 {
     <div class="container">
-        <div class="row">
+        <div class="row" style="color:white">
             <div class="col-md-6">
                 <h2>@obj.Title</h2>
-                <p>@Html.Raw(obj.Body)</p>
+                <p>@Html.Raw(obj.Body)</p> <!--yan yana getiriyor-->
             </div>
             <div class="col-md-6">
                 <img src="@obj.Image" />
